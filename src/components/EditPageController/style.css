@@ -1,0 +1,20 @@
+.edit-page-controler {
+  width: 500px;
+  background-color: var(--basicui-bg-surface);
+  padding: 12px 12px;
+  border-radius: 4px;
+}
+.contact-detail,
+.contact-detail__form {
+  display: grid;
+  grid-auto-flow: row;
+  row-gap: 12px;
+}
+
+.contact-detail__action {
+  margin-right: -6px;
+}
+
+.contact-detail__action.action-footer > * {
+  margin: 6px;
+}
