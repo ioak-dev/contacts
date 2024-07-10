@@ -1,13 +1,15 @@
 const dotenv = require("dotenv");
 const path = require("path");
 
-// Load environment variables from .env.production
-dotenv.config({ path: path.resolve(process.cwd(), ".env.production") });
+if (process.env.NODE_ENV === "production") {
+  dotenv.config({ path: path.resolve(process.cwd(), ".env.production") });
+} else {
+  dotenv.config({ path: path.resolve(process.cwd(), ".env.local") });
+}
 
 module.exports = {
   env: {
     API_URL: process.env.NEXT_PUBLIC_API_URL,
-    NODE_ENV: process.env.NODE_ENV
   },
   trailingSlash: true,
   experimental: {
