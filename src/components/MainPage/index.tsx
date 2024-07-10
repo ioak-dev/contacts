@@ -34,7 +34,7 @@ const MainPage = (props: Props) => {
         </thead>
         <tbody>
           {contacts.map((item) => (
-            <tr onClick={() => handleClick(item)}>
+            <tr key={item._id} onClick={() => handleClick(item)}>
               <td>{`${item.givenName} ${item.familyName}`}</td>
               <td>{item.email}</td>
               <td>{item.telephone}</td>
