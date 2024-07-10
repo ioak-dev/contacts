@@ -6,7 +6,7 @@ module.exports = {
         args: 'out -l 7001', // Change 'out' to your build directory if different
         env: {
           NODE_ENV: 'production',
-          PORT: 7001
+        //   PORT: 7001
         }
       }
     ]
