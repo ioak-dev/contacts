@@ -33,7 +33,7 @@ const MainPage = (props: Props) => {
 
   return (
     <div className="main-page-controller page-container">
-      <div className="position-right">
+      <div className="main-page-controller__action">
         <Button theme={ThemeType.primary} onClick={createContact}>
           <FontAwesomeIcon icon={faPlus} />
           Contact

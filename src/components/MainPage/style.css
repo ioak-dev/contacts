@@ -1,3 +1,9 @@
 .main-page-controller .basicui-table {
   background-color: var(--basicui-bg-surface);
 }
+
+.main-page-controller__action {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
