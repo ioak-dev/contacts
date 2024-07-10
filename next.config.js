@@ -1,11 +1,9 @@
 const path = require('path')
 const dotenv = require('dotenv')
 
-dotenv
-
 let envFile = '.env';
-if (env.target) {
-  envFile = `.env.${env.target}`;
+if (process.env.ENVIRONMENT) {
+  envFile = `.env.${process.env.ENVIRONMENT}`;
 }
 dotenv.config({
   path: path.join(__dirname, envFile),
