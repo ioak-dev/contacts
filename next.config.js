@@ -6,8 +6,7 @@ dotenv.config({ path: path.resolve(process.cwd(), ".env.production") });
 
 module.exports = {
   env: {
-    API_URL: process.env.NEXT_PUBLIC_API_URL,
-    NODE_ENV: process.env.NODE_ENV,
+    API_URL: process.env.NEXT_PUBLIC_API_URL
   },
   trailingSlash: true,
   experimental: {
