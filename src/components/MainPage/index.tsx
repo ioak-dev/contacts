@@ -6,6 +6,9 @@ import { Contact } from "@/types/Contact";
 import EditPageController from "../EditPageController";
 import { getContacts } from "./service";
 import { useRouter, useSearchParams } from "next/navigation";
+import { Button, ThemeType } from "basicui";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faPlus } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {}
 
@@ -24,8 +27,18 @@ const MainPage = (props: Props) => {
     router.push(`/edit?id=${contact._id}`);
   };
 
+  const createContact = () => {
+    router.push(`/edit`);
+  };
+
   return (
     <div className="main-page-controller page-container">
+      <div className="position-right">
+        <Button theme={ThemeType.primary} onClick={createContact}>
+          <FontAwesomeIcon icon={faPlus} />
+          Contact
+        </Button>
+      </div>
       <table className="basicui-table table-rounded table-hover">
         <thead>
           <th>Name</th>
