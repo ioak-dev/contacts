@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "TARGET_ENV=production next build",
     "start": "next start",
     "lint": "next lint",
     "deploy": "pm2 start npm --name 'contacts' -- start -- --port=7001"
