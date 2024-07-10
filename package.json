@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy": "pm2 start npm --name 'contacts' -- start -- --port=7001"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.5.2",
