@@ -36,7 +36,9 @@ import {
 } from "./service";
 import { useRouter, useSearchParams } from "next/navigation";
 
-interface Props {}
+interface Props {
+  userPage?: boolean;
+}
 
 const EditPageController = (props: Props) => {
   const router = useRouter();
@@ -70,7 +72,7 @@ const EditPageController = (props: Props) => {
       });
     } else {
       saveContact(state, null).then((response: any) => {
-        router.back();
+        props.userPage ? router.push('/create-success') : router.back();
       });
     }
   };
@@ -130,21 +132,25 @@ const EditPageController = (props: Props) => {
         <div className="contact-detail__action action-footer position-right">
           <Button theme={ThemeType.primary} type="submit">
             <FontAwesomeIcon icon={faChevronRight} />
-            Save and go back
+            {props.userPage ? "Save" : "Save and go back"}
           </Button>
-          <Button
-            theme={ThemeType.danger}
-            onClick={handleDelete}
-            variant={ButtonVariantType.outline}
-          >
-            <FontAwesomeIcon icon={faTrash} />
-          </Button>
-          <Button
-            onClick={() => router.back()}
-            variant={ButtonVariantType.outline}
-          >
-            <FontAwesomeIcon icon={faTimes} />
-          </Button>
+          {state._id && (
+            <Button
+              theme={ThemeType.danger}
+              onClick={handleDelete}
+              variant={ButtonVariantType.outline}
+            >
+              <FontAwesomeIcon icon={faTrash} />
+            </Button>
+          )}
+          {!props.userPage && (
+            <Button
+              onClick={() => router.back()}
+              variant={ButtonVariantType.outline}
+            >
+              <FontAwesomeIcon icon={faTimes} />
+            </Button>
+          )}
         </div>
       </form>
     </div>
