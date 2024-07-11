@@ -28,7 +28,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Contact } from "@/types/Contact";
-import { getContactById, saveContact, saveContactById } from "./service";
+import {
+  deleteContactById,
+  getContactById,
+  saveContact,
+  saveContactById,
+} from "./service";
 import { useRouter, useSearchParams } from "next/navigation";
 
 interface Props {}
@@ -67,6 +72,16 @@ const EditPageController = (props: Props) => {
       saveContact(state, null).then((response: any) => {
         router.back();
       });
+    }
+  };
+
+  const handleDelete = (event: any) => {
+    if (state._id) {
+      deleteContactById(state._id, null).then((response: any) => {
+        router.back();
+      });
+    } else {
+      router.back();
     }
   };
 
@@ -117,7 +132,17 @@ const EditPageController = (props: Props) => {
             <FontAwesomeIcon icon={faChevronRight} />
             Save and go back
           </Button>
-          <Button onClick={() => router.back()}>
+          <Button
+            theme={ThemeType.danger}
+            onClick={handleDelete}
+            variant={ButtonVariantType.outline}
+          >
+            <FontAwesomeIcon icon={faTrash} />
+          </Button>
+          <Button
+            onClick={() => router.back()}
+            variant={ButtonVariantType.outline}
+          >
             <FontAwesomeIcon icon={faTimes} />
           </Button>
         </div>
