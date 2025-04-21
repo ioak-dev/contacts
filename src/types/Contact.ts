@@ -5,6 +5,8 @@ export type Contact = {
   familyName: string;
   email: string;
   telephone?: string;
+  organization?: string;
+  lead?: string;
   _id?: string;
   lastModifiedBy?: string;
   lastModifiedDate?: string;

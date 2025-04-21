@@ -10,7 +10,7 @@ import { Button, ThemeType } from "basicui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronRight, faPlus } from "@fortawesome/free-solid-svg-icons";
 
-interface Props {}
+interface Props { }
 
 const MainPage = (props: Props) => {
   const router = useRouter();
@@ -42,6 +42,7 @@ const MainPage = (props: Props) => {
       <table className="basicui-table table-rounded table-hover">
         <thead>
           <th>Name</th>
+          <th>Organization</th>
           <th>Email</th>
           <th>Telephone</th>
         </thead>
@@ -49,6 +50,7 @@ const MainPage = (props: Props) => {
           {contacts.map((item) => (
             <tr key={item._id} onClick={() => handleClick(item)}>
               <td>{`${item.givenName} ${item.familyName}`}</td>
+              <td>{item.organization}</td>
               <td>{item.email}</td>
               <td>{item.telephone}</td>
             </tr>

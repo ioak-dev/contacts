@@ -117,9 +117,21 @@ const EditPageController = (props: Props) => {
             onInput={handleChange}
           />
           <Input
+            label="Organization"
+            name="organization"
+            value={state.organization}
+            onInput={handleChange}
+          />
+          <Input
             label="Topic of interest"
             name="topic"
             value={state.topic}
+            onInput={handleChange}
+          />
+          <Input
+            label="Leads"
+            name="lead"
+            value={state.lead}
             onInput={handleChange}
           />
           <Textarea
